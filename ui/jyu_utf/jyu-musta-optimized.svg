@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/)
+     Hand-optimized by Joel Lehtonen, jopesale at iki.fi.
+     Public domain, though Dr. Aino S. probably hates you if you use this. -->
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1" xml:space="preserve" id="jyu" width="100%" height="100%">
+
+  <defs>
+    <symbol id="soihtusym" patternUnits="userSpaceOnUse" viewBox="0 0 1000 2300" >
+      <path id="soihtu" style="fill:none;stroke:white;stroke-width:25;" d="m 405,240 c 39,-50 75,-87 49,-150 L 498,53 C 548,115 549,203 509,265 418,428 259,553 245,740 131,553 293,403 405,240 z m 135,113 c 44,-50 70,-113 40,-163 l 55,-37 c 50,75 43,187 -12,250 C 456,665 298,690 363,915 l -52,0 C 216,615 379,565 540,353 z M 411,753 c 95,-113 225,-225 280,-300 18,-25 34,-50 9,-113 l 41,-25 c 73,113 57,188 -7,250 -60,75 -125,138 -214,238 -45,50 3,137 13,197 l -110,0 C 394,903 353,828 411,753 z m 167,257 C 561,940 523,878 565,828 669,728 680,728 750,653 c 26,-25 19,-50 23,-75 l 40,-25 c 31,50 25,137 -45,212 -87,88 -127,113 -130,125 -4,13 7,50 27,120 l -87,0 z m -83,310 C 259,1330 82,1160 37.4,1070 l 924,0 c -106,160 -276,260 -466,250 z m -60,50 c 54,20 96,10 144,0 l 0,840 -146,0 2,-840 z" />
+    </symbol> 
+  </defs>
+  
+  <!-- Outline the drawing area in blue -->
+  
+  <use x="-2.4em" y="0em"  width="5em" height="9em" xlink:href="#soihtusym" />
+  <use x="-2.4em" y="10em" width="5em" height="9em" xlink:href="#soihtusym" />
+  <use x="-2.4em" y="20em" width="5em" height="9em" xlink:href="#soihtusym" />
+  <use x="-2.4em" y="30em" width="5em" height="9em" xlink:href="#soihtusym" />
+  <use x="-2.4em" y="40em" width="5em" height="9em" xlink:href="#soihtusym" />
+  <use x="-2.4em" y="50em" width="5em" height="9em" xlink:href="#soihtusym" />
+
+</svg>
