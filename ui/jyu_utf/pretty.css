@@ -33,14 +33,6 @@ sup {font-size: smaller; line-height: 1px;}
 .slide code.old {color: silver;}
 .slide pre {padding: 0; margin: 0.25em 0 0.5em 0.5em; color: #533; font-size: 90%;}
 .slide pre code {display: block;}
-.slide ul {
-    margin-left: 0em;
-    margin-right: 1em;
-    list-style: disc;
-}
-.slide li {margin-top: 0.75em; margin-right: 0;}
-.slide ul ul {line-height: 1;}
-.slide ul ul li {margin: .2em; font-size: 85%; list-style: square;}
 .slide img.leader {display: block; margin: 0 auto;}
 
 div#header, div#footer {
@@ -65,7 +57,6 @@ div.long {font-size: 0.75em;}
     padding: 0;
     white-space: nowrap;
     font: bold 150%/1em Arial, Helvetica, sans-serif;
-    text-transform: capitalize;
     color: white;
     background-color: transparent;
 }
@@ -146,8 +137,29 @@ table.fs50 tr td, table.fs50 tr th, div.fs50, pre.fs50, p.fs50 ,ul.fs50 {font-si
     margin-left: 2em;
 }
 
-.slide ul{
+.slide ul {
+    margin-left: 0em;
+    margin-right: 1em;
+    list-style: disc;
     margin-top: 1.3em;
+}
+.slide li {
+    margin-top: 0.75em;
+    margin-right: 0;
+}
+
+.slide ul ul {
+    line-height: 1;
+    margin-top: 0.5em;
+}
+.slide ul ul li {
+    margin: .3em;
+    font-size: 85%;
+    list-style: square;
+}
+
+
+.slide ul{
 }
 
 .data {
