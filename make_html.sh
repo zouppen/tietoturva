@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 RST2XML=rst2xml-2.6.py
 XSLTPROC=xsltproc

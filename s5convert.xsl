@@ -7,8 +7,6 @@
 
   <xsl:variable name="docinfo" select="/document/docinfo[1]" />
 
-  <!--  -->
-
   <xsl:template match="/">
 
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -74,7 +72,13 @@
 	    <h4><xsl:value-of select="$docinfo/organization" /></h4>
 	  </div>
 
-	  <xsl:apply-templates mode="slides" />
+	  <xsl:for-each select="/document/section">
+	    <div class="slide">
+	      <h1><xsl:apply-templates select="title/node()" mode="inline" /></h1>
+      
+	      <xsl:apply-templates mode="body"/>
+	    </div>
+	  </xsl:for-each>
 
 	</div>
 
@@ -82,18 +86,8 @@
     </html>
   </xsl:template>
 
-  <!-- Slide handling. Forgets "invalid" elements. -->
-
-  <!--<xsl:template match="*|@*" mode="slides" priority="-10"/>-->
-
-  <xsl:template match="/document/section" mode="slides" priority="10">
-    <div class="slide">
-      <h1><xsl:apply-templates select="title" mode="inline" /></h1>
-      
-      <xsl:apply-templates mode="body"/>
-    </div>
-  </xsl:template>
-
+  <!-- Skip elements which contain no slide data -->
+  <!-- <xsl:template match="docinfo" mode="slides" /> -->
 
   <xsl:template match="bullet_list" mode="body">
     <ul>
@@ -107,10 +101,72 @@
     <p><xsl:apply-templates mode="inline"/></p>
   </xsl:template>
 
+  <xsl:template match="table" mode="body">
+    <table class="data">
+      <xsl:apply-templates select="tgroup/tbody|tgroup/thead" mode="intable"/>
+    </table>
+  </xsl:template>
+  
+  <xsl:template match="thead" mode="intable">
+    <xsl:for-each select="row">
+      <tr>
+	<xsl:for-each select="entry">
+	  <th>
+	    <xsl:apply-templates select="@*" mode="intable" />
+	    <!-- Remove paragraphs inside tables. -->
+	    <xsl:apply-templates mode="inline" select="paragraph/node()"/>
+	  </th>
+	</xsl:for-each>
+      </tr>
+    </xsl:for-each>
+  </xsl:template>
+
+  <xsl:template match="tbody" mode="intable">
+    <xsl:for-each select="row">
+      <tr>
+	<xsl:for-each select="entry">
+	  <td>
+	    <xsl:apply-templates select="@*" mode="intable" />
+	    <!-- Remove paragraphs inside tables. -->
+	    <xsl:apply-templates mode="inline" select="paragraph/node()" />
+	  </td>
+	</xsl:for-each>
+      </tr>
+    </xsl:for-each>
+  </xsl:template>
+  
+  <xsl:template match="@morerows" mode="intable">
+    <xsl:attribute name="rowspan">
+      <xsl:value-of select=". + 1" />
+    </xsl:attribute>
+  </xsl:template>
+
+  <xsl:template match="@morecols" mode="intable">
+    <xsl:attribute name="colspan">
+      <xsl:value-of select=". + 1" />
+    </xsl:attribute>
+  </xsl:template>
+
+  <!-- Take title away. -->
+  <xsl:template match="title" mode="body" />
+
   <xsl:template match="emphasis" mode="inline">
     <em><xsl:apply-templates mode="inline"/></em>
   </xsl:template>
 
+  <!-- Kun mikään ei täsmää, anna varoitus. -->
 
-  
+  <xsl:template match="*" mode="body" priority="-10">
+    <xsl:message terminate="yes">
+      Tuntematon RST-elementti rungossa: <xsl:value-of select="name()" />
+      Arvo: <xsl:value-of select="." />
+    </xsl:message>
+  </xsl:template>
+
+  <xsl:template match="*" mode="inline" priority="-10">
+    <xsl:message terminate="yes">
+      Tuntematon RST-inline-elementti: <xsl:value-of select="name()" />
+      Arvo: <xsl:value-of select="." />
+    </xsl:message>
+  </xsl:template>
 </xsl:stylesheet>
