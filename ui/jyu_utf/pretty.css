@@ -165,6 +165,7 @@ table.fs50 tr td, table.fs50 tr th, div.fs50, pre.fs50, p.fs50 ,ul.fs50 {font-si
 .data {
     margin-top: 1.3em;
     border-collapse: collapse;
+    margin-right: 2em;
 }
 
 .data th {
@@ -174,4 +175,8 @@ table.fs50 tr td, table.fs50 tr th, div.fs50, pre.fs50, p.fs50 ,ul.fs50 {font-si
 .data th, .data td {
     border: 1px solid black;
     padding: 0.2em 0.5em;
+}
+
+.normalp {
+    margin-right: 2em;
 }

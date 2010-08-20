@@ -98,7 +98,7 @@
   </xsl:template>
 
   <xsl:template match="paragraph" mode="body">
-    <p><xsl:apply-templates mode="inline"/></p>
+    <p class="normalp"><xsl:apply-templates mode="inline"/></p>
   </xsl:template>
 
   <xsl:template match="table" mode="body">
@@ -152,6 +152,10 @@
 
   <xsl:template match="emphasis" mode="inline">
     <em><xsl:apply-templates mode="inline"/></em>
+  </xsl:template>
+
+  <xsl:template match="strong" mode="inline">
+    <strong><xsl:apply-templates mode="inline"/></strong>
   </xsl:template>
 
   <!-- Kun mikään ei täsmää, anna varoitus. -->
